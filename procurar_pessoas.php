@@ -9,7 +9,7 @@
 	<head>
 		<meta charset="UTF-8">
 
-		<title>Twitter clone</title>
+		<title>Wiremotion</title>
 
 		<!-- jquery - link cdn -->
 		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
@@ -20,7 +20,6 @@
     <script type="text/javascript">
     $(document).ready(function(){
       $('#btn_procurar_pessoa').click (function (){
-
         if ( $('#nome_pessoa').val().length > 0 ){
           $.ajax({
             url:'get_pessoa.php',
@@ -28,53 +27,61 @@
             data: $('#form_procurar_pessoas').serialize(),
             success: function(data){
               $('#id_pessoas').html(data);
-
               $('.btn_seguir').click(function(){
                 var id_usuario = $(this).data('id_usuario');
                   //ocultar botoes mostrar botão correto
                   $('#btn_seguir_'+id_usuario).hide();
                   $('#btn_deixar_seguir_'+id_usuario).show();
-
-
-
                 $.ajax({
                   url:'seguir.php',
                   method: 'post',
                   data: {seguir_id_usuario:id_usuario},
                   success: function(data){
+                    atualizaNumeroSeguidores()
                   }
-
                 });
-
               });
-
               $('.btn_deixar_seguir').click(function(){
                 var id_usuario = $(this).data('id_usuario');
                 //ocultar botoes mostrar botão correto
                 $('#btn_seguir_'+id_usuario).show();
                 $('#btn_deixar_seguir_'+id_usuario).hide();
-
                 $.ajax({
                   url:'deixar_seguir.php',
                   method: 'post',
                   data: {deixar_seguir_id_usuario:id_usuario},
                   success: function(data){
-                    
+                    atualizaNumeroSeguidores()
                   }
-
                 });
-
               });
-
             }
           });
         }
       });
+      function atualizaNumeroSeguidores(){
+        $.ajax({
+          url: 'get_numero_seguidores.php',
+          success: function(data){
+            $('#numero_seguidores').html(data);
+          }
+        });
+      }
 
-
-
-
+      function atualizaNumeroTwitter(){
+        $.ajax({
+          url: 'get_numero_tweets.php',
+          success: function(data){
+            $('#numero_tweets').html(data);
+          }
+        });
+      }
+      
+      atualizaNumeroTwitter();
+      atualizaNumeroSeguidores();
     });
+
+
 
     </script>
 	</head>
@@ -91,7 +98,7 @@
 	            <span class="icon-bar"></span>
 	            <span class="icon-bar"></span>
 	          </button>
-            <a href="home.php"><img src="imagens/icone_twitter.png" /></a>
+            <a href="home.php"><img src="imagens/icone.png" /></a>
           </div>
 
 	        <div id="navbar" class="navbar-collapse collapse">
@@ -103,7 +110,6 @@
 	      </div>
 	    </nav>
 
-
 	    <div class="container">
     	    	<div class="col-md-3">
               <div class="panel panel-default">
@@ -112,13 +118,16 @@
                   <hr/>
                   <div class="col-md-6">
                     TWEETS <br/>
-                    1
+                    <div class="" id="numero_tweets">
+
+                    </div>
 
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-6" >
                     SEGUIDORES <br/>
-                    1
+                    <div class="" id="numero_seguidores" >
 
+                    </div>
                   </div>
                 </div>
               </div>
@@ -141,12 +150,6 @@
               </div>
 
   			</div>
-
-
-
-
-
-
 
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 

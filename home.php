@@ -37,7 +37,7 @@
 	<head>
 		<meta charset="UTF-8">
 
-		<title>Twitter clone</title>
+		<title>Wiremotion</title>
 
 		<!-- jquery - link cdn -->
 		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
@@ -57,6 +57,7 @@
             success: function(data){
               $('#texto_tweet').val('');
               atualizaTweet();
+              atualizaNumeroTwitter();
             }
           });
         }
@@ -71,7 +72,17 @@
         });
       }
 
+      function atualizaNumeroTwitter(){
+        $.ajax({
+          url: 'get_numero_tweets.php',
+          success: function(data){
+            $('#numero_tweets').html(data);
+          }
+        });
+      }
+
       atualizaTweet();
+      atualizaNumeroTwitter();
     });
 
     </script>
@@ -89,7 +100,7 @@
 	            <span class="icon-bar"></span>
 	            <span class="icon-bar"></span>
 	          </button>
-            <a href="home.php"><img src="imagens/icone_twitter.png" /></a>
+            <a href="home.php"><img src="imagens/icone.png" /></a>
   				</div>
 
 	        <div id="navbar" class="navbar-collapse collapse">
@@ -107,9 +118,11 @@
                 <div class="panel-body">
                   <h4><?= $_SESSION ['usuario']; ?></h4>
                   <hr/>
-                  <div class="col-md-6">
+                  <div  class="col-md-6">
                     TWEETS <br/>
-                    <?=   $qtde_tweets?>
+                    <div id="numero_tweets" >
+
+                    </div>
 
                   </div>
                   <div class="col-md-6">
@@ -128,7 +141,7 @@
                   <form id="form_tweet" class="input-group">
                     <input type="text" name="texto_tweet" id="texto_tweet" class="form-control" placeholder="O que está acontecendo agora?"  maxlength="140" >
                     <span class="input-group-btn">
-                    <button type="button" id="btn_tweet" class="btn btn-default" name="button">Tweet</button>
+                    <button type="button" id="btn_tweet" class="btn btn-default" name="button">Falar</button>
                   </form>
                   </div>
                 </div>

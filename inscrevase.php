@@ -9,7 +9,7 @@
 	<head>
 		<meta charset="UTF-8">
 
-		<title>Twitter clone</title>
+		<title>Wiremotion</title>
 
 		<!-- jquery - link cdn -->
 		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
@@ -31,7 +31,7 @@
 	            <span class="icon-bar"></span>
 	            <span class="icon-bar"></span>
 	          </button>
-	        <a href="index.php"><img src="imagens/icone_twitter.png" /></a>
+	        <a href="index.php"><img src="imagens/icone.png" /></a>
 				</div>
 
 	        <div id="navbar" class="navbar-collapse collapse">
