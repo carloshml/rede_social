@@ -37,11 +37,11 @@
                   method: 'post',
                   data: {seguir_id_usuario:id_usuario},
                   success: function(data){
-                    atualizaNumeroSeguidores()
+                    atualizaNumeroSeguidores();
                   }
                 });
               });
-              $('.btn_deixar_seguir').click(function(){
+              $('.btn_deixar_seguir').click(function(){                
                 var id_usuario = $(this).data('id_usuario');
                 //ocultar botoes mostrar botão correto
                 $('#btn_seguir_'+id_usuario).show();
@@ -51,7 +51,7 @@
                   method: 'post',
                   data: {deixar_seguir_id_usuario:id_usuario},
                   success: function(data){
-                    atualizaNumeroSeguidores()
+                    atualizaNumeroSeguidores();
                   }
                 });
               });
@@ -76,7 +76,7 @@
           }
         });
       }
-      
+
       atualizaNumeroTwitter();
       atualizaNumeroSeguidores();
     });
