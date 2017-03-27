@@ -30,28 +30,77 @@
         echo 'erro de execução no banco';
       }
 
-      $sql = "SELECT * FROM usuarios where id = $id_usuario " ;
-      $result_id = mysqli_query($link,$sql) or die("Impossível executar a query");
 
-      if ($result_id){
-          $registro = mysqli_fetch_array($result_id,MYSQLI_ASSOC);
-      						 $lugar_foto = $registro['foto_usuario'];
-      }else {
-        echo 'erro de execução no banco';
-      }
 ?>
 <!DOCTYPE HTML>
 <html lang="pt-br">
 	<head>
 		<meta charset="UTF-8">
+
 		<title>Wiremotion</title>
+
 		<!-- jquery - link cdn -->
 		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
 		<!-- bootstrap - link cdn -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script language="JavaScript" src="carregamentos.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $('#btn_tweet').click (function (){
+
+        if ( $('#texto_tweet').val().length > 0 ){
+          $.ajax({
+            url:'inclui_tweet.php',
+            method: 'post',
+            data: $('#form_tweet').serialize(),
+            success: function(data){
+              $('#texto_tweet').val('');
+              atualizaTweet();
+              atualizaNumeroTwitter();
+            }
+          });
+        }
+      });
+
+      function atualizaTweet(){
+        $.ajax({
+          url: 'get_twitter_usuario.php',
+          success: function(data){
+            $('#tweets').html(data);
+            $('.btn_apaga_tweet').click(function(){
+              var id_tweet = $(this).attr('id');
+              $.ajax({
+                url: 'apagar_tweet.php',
+                method: 'post',
+                data: {id_tweet:id_tweet},
+                success: function(data){
+                  atualizaTweet();
+                }
+              });
+            });
+          }
+        });
+      }
+
+      function atualizaNumeroTwitter(){
+        $.ajax({
+          url: 'get_numero_tweets.php',
+          success: function(data){
+            $('#numero_tweets').html(data);
+          }
+        });
+      }
+
+      atualizaTweet();
+      atualizaNumeroTwitter();
+    });
+
+    </script>
 	</head>
+
 	<body>
+
 		<!-- Static navbar -->
 	    <nav class="navbar navbar-default navbar-static-top">
 	      <div class="container">
@@ -78,30 +127,25 @@
     	    	<div class="col-md-3">
               <div class="panel panel-default">
                 <div class="panel-body">
-                    <div class="row">
-                      <div  class="col-md-6">
-                        <img src="fotos/<?=$lugar_foto?>" height="60" width="60">
-                        </div>
-                      <div class="col-md-6">
-                        <h4><?= $_SESSION ['usuario']; ?></h4>
-                      </div>
+                  <h4><?= $_SESSION ['usuario']; ?></h4>
+                  <hr/>
+                  <div  class="col-md-6">
+                    TWEETS <br/>
+                    <div id="numero_tweets" >
+
                     </div>
-                    <hr/>
-                    <div class="row">
-                      <div  class="col-md-6">
-                          <a href="tweet_usuario.php">TWEETS</a>
-                          <br/>
-                          <div id="numero_tweets" >
-                          </div>
-                      </div>
-                      <div class="col-md-6">
-                        SEGUIDORES <br/>
-                        <?= $qtde_seguidores ?>
-                      </div>
-                    </div>
+
+                  </div>
+                  <div class="col-md-6">
+                    SEGUIDORES <br/>
+                      <?= $qtde_seguidores ?>
+                  </div>
+
                 </div>
               </div>
             </div>
+
+
     	    	<div class="col-md-6">
               <div class="panel panel-default">
                 <div class="panel-body">
@@ -113,8 +157,11 @@
                   </div>
                 </div>
                 <div class="list-group" id="tweets">
+
                 </div>
               </div>
+
+
 
               <div class="col-md-3">
                 <div class="panel panel-default">
@@ -123,7 +170,16 @@
                   </div>
                 </div>
               </div>
+
+
   			</div>
+
+
+
+
+
+
+
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 	</body>

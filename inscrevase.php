@@ -51,9 +51,9 @@
 	    	<div class="col-md-4">
 	    		<h3>Inscreva-se já.</h3>
 	    		<br />
-				<form method="post" action="registra_usuario.php" id="formCadastrarse">
+				<form method="post" action="registra_usuario.php" id="formCadastrarse" enctype="multipart/form-data">
 					<div class="form-group">
-						<input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuário" required="requiored">
+						<input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuário" required="required">
 						<?php
 							if($erro_usuario){// 1 = true   0=false
 								echo '<font style="color:#FF0000"> usuario já existe</font>';
@@ -62,7 +62,7 @@
 					</div>
 
 					<div class="form-group">
-						<input type="email" class="form-control" id="email" name="email" placeholder="Email" required="requiored">
+						<input type="email" class="form-control" id="email" name="email" placeholder="Email" required="required">
 						<?php
 							if($erro_email){
 								echo '<font style="color:#FF0000"> e-mail já existe</font>';
@@ -71,8 +71,14 @@
 					</div>
 
 					<div class="form-group">
-						<input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required="requiored">
+						<input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required="required">
 					</div>
+
+					<div class="form-group">
+						<input type="file" class="form-control" id="imagem" name="imagem" required="required"/>
+					</div>
+
+
 
 					<button type="submit" class="btn btn-primary form-control">Inscreva-se</button>
 				</form>
