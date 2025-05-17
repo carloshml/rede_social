@@ -32,13 +32,14 @@ if ($resultado_id = mysqli_query($link, $sql)) {
 
 $sql = "SELECT * FROM usuarios where id = $id_usuario ";
 $result_id = mysqli_query($link, $sql) or die("Impossível executar a query");
-
 if ($result_id) {
   $registro = mysqli_fetch_array($result_id, MYSQLI_ASSOC);
   $lugar_foto = $registro['foto_usuario'];
 } else {
   echo 'erro de execução no banco';
 }
+
+
 ?>
 <!DOCTYPE HTML>
 <html lang="pt-br">
@@ -67,7 +68,6 @@ if ($result_id) {
         </button>
         <a href="home.php"><img src="imagens/icone.png" /></a>
       </div>
-
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="sair.php">Sair</a></li>
@@ -75,8 +75,6 @@ if ($result_id) {
       </div><!--/.nav-collapse -->
     </div>
   </nav>
-
-
   <div class="container">
     <div class="col-md-3">
       <div class="panel panel-default">
@@ -118,7 +116,6 @@ if ($result_id) {
       <div class="list-group" id="tweets">
       </div>
     </div>
-
     <div class="col-md-3">
       <div class="panel panel-default">
         <div class="panel-body">
@@ -128,7 +125,5 @@ if ($result_id) {
     </div>
   </div>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
 </body>
-
 </html>

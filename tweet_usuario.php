@@ -29,6 +29,17 @@ if ($resultado_id = mysqli_query($link, $sql)) {
 } else {
   echo 'erro de execução no banco';
 }
+
+$sql = "SELECT * FROM usuarios where id = $id_usuario ";
+$result_id = mysqli_query($link, $sql) or die("Impossível executar a query");
+if ($result_id) {
+  $registro = mysqli_fetch_array($result_id, MYSQLI_ASSOC);
+  $lugar_foto = $registro['foto_usuario'];
+} else {
+  echo 'erro de execução no banco';
+}
+
+
 ?>
 <!DOCTYPE HTML>
 <html lang="pt-br">
@@ -88,6 +99,7 @@ if ($resultado_id = mysqli_query($link, $sql)) {
     });
   </script>
 </head>
+
 <body>
   <!-- Static navbar -->
   <nav class="navbar navbar-default navbar-static-top">
@@ -114,8 +126,15 @@ if ($resultado_id = mysqli_query($link, $sql)) {
     <div class="col-md-3">
       <div class="panel panel-default">
         <div class="panel-body">
-          <h4><?= $_SESSION['usuario']; ?></h4>
-          <hr />
+          <div class="row">
+            <div class="col-md-6">
+              <img src="fotos/<?= $lugar_foto ?>" height="60" width="60">
+            </div>
+            <div class="col-md-6">
+              <h4><?= $_SESSION['usuario']; ?></h4>
+            </div>
+          </div>
+
           <div class="col-md-6">
             TWEETS <br />
             <div id="numero_tweets">
@@ -125,7 +144,6 @@ if ($resultado_id = mysqli_query($link, $sql)) {
             SEGUIDORES <br />
             <?= $qtde_seguidores ?>
           </div>
-
         </div>
       </div>
     </div>
@@ -153,4 +171,5 @@ if ($resultado_id = mysqli_query($link, $sql)) {
   </div>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
+
 </html>
