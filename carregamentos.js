@@ -23,7 +23,7 @@ $(document).ready(function () {
         $('.btn_apaga_tweet').click(function () {
           var id_tweet = $(this).attr('id');
           $.ajax({
-            url: 'apagar_tweet.php',
+            url: 'controllers/apagar_tweet.php',
             method: 'post',
             data: { id_tweet: id_tweet },
             success: function (data) {

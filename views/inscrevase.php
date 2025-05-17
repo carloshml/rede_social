@@ -46,13 +46,9 @@ $erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
 
 
 	<div class="container">
-
-		<br /><br />
-
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
-			<h3>Inscreva-se já.</h3>
-			<br />
+			<h3>Inscreva-se já.</h3>		 
 			<form method="post" action="../controllers/registra_usuario.php" id="formCadastrarse"
 				enctype="multipart/form-data">
 				<div class="form-group">
@@ -64,7 +60,6 @@ $erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
 					}
 					?>
 				</div>
-
 				<div class="form-group">
 					<?php
 					if ($erro_email) {
@@ -73,14 +68,11 @@ $erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
 					?>
 					<input type="email" class="form-control" id="email" name="email" placeholder="Email"
 						required="required">
-					
 				</div>
-
 				<div class="form-group">
 					<input type="password" class="form-control" id="senha" name="senha" placeholder="Senha"
 						required="required">
 				</div>
-
 				<div class="form-group">
 					<input type="file" class="form-control" id="imagem" name="imagem" required="required" />
 				</div>

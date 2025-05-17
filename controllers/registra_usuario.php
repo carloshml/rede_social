@@ -73,7 +73,7 @@ if (move_uploaded_file($_FILES['imagem']['tmp_name'], $_UP['pasta'] . $nome_fina
     echo "<script type=\"text/javascript\">;
                     alert('imagem cadastrada com sucesso');
                 </script>";
-    header('Location: ../../index.php');
+    header('Location:  ../index.php');
   } else {
     echo "<script type=\"text/javascript\">;
                     alert('Usuario Não Foi cadastrado');
