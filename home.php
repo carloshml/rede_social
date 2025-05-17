@@ -71,6 +71,13 @@ if ($result_id) {
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="sair.php">Sair</a></li>
+          <li>
+            <a id=" "  href="views/user-update.php" class="btn btn-warning list-group-item-text pull-right btn_apaga_tweet" type="button"
+              name="button">
+              <span class="glyphicon glyphicon-cog"> </span>
+            </a>
+
+          </li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
@@ -106,7 +113,7 @@ if ($result_id) {
       <div class="panel panel-default">
         <div class="panel-body">
           <form id="form_tweet" class="input-group">
-            <input id="texto_tweet" type="text" name="texto_tweet"  class="form-control"
+            <input id="texto_tweet" type="text" name="texto_tweet" class="form-control"
               placeholder="O que está acontecendo agora?" maxlength="140">
             <span class="input-group-btn">
               <button type="button" id="btn_tweet" class="btn btn-default" name="button">Falar</button>
@@ -126,4 +133,5 @@ if ($result_id) {
   </div>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
+
 </html>
