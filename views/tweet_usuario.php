@@ -6,7 +6,7 @@ if (!isset($_SESSION['usuario'])) {
 //atribuição do id do usuario da sessão
 $id_usuario = $_SESSION['id_usuario'];
 // conexão com o banco
-require_once('controllers/bd.class.php');
+require_once('../controllers/bd.class.php');
 $objBD = new bd();
 $link = $objBD->conecta_mysql();
 // recuperar quantidade de tweets
@@ -56,7 +56,7 @@ if ($result_id) {
       $('#btn_tweet').click(function () {
         if ($('#texto_tweet').val().length > 0) {
           $.ajax({
-            url: 'controllers/inclui_tweet.php',
+            url: '../controllers/inclui_tweet.php',
             method: 'post',
             data: $('#form_tweet').serialize(),
             success: function (data) {
@@ -69,7 +69,7 @@ if ($result_id) {
       });
       function atualizaTweet() {
         $.ajax({
-          url: 'controllers/get_twitter_usuario.php',
+          url: '../controllers/get_twitter_usuario.php',
           success: function (data) {
             $('#tweets').html(data);
             $('.btn_apaga_tweet').click(function () {
@@ -88,7 +88,7 @@ if ($result_id) {
       }
       function atualizaNumeroTwitter() {
         $.ajax({
-          url: 'get_numero_tweets.php',
+          url: '../controllers/get_numero_tweets.php',
           success: function (data) {
             $('#numero_tweets').html(data);
           }
@@ -112,12 +112,12 @@ if ($result_id) {
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="home.php"><img src="imagens/icone.png" /></a>
+        <a href="../home.php"><img src="../imagens/icone.png" /></a>
       </div>
 
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="sair.php">Sair</a></li>
+          <li><a href="../sair.php">Sair</a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
@@ -128,13 +128,13 @@ if ($result_id) {
         <div class="panel-body">
           <div class="row">
             <div class="col-md-6">
-              <img src="fotos/<?= $lugar_foto ?>" height="60" width="60">
+              <img src="../fotos/<?= $lugar_foto ?>" height="60" width="60">
             </div>
             <div class="col-md-6">
               <h4><?= $_SESSION['usuario']; ?></h4>
             </div>
           </div>
-
+          <hr />
           <div class="col-md-6">
             TWEETS <br />
             <div id="numero_tweets">
