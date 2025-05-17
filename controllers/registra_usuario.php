@@ -48,13 +48,13 @@ if ($usuario_existe || $email_existe) {
     $retorno_get .= "erro_email=1&";
   }
 
-  header('Location: inscrevase.php?' . $retorno_get);
+  header('Location: ../views/inscrevase.php?' . $retorno_get);
   die();
 }
 
 $arquivo = $_FILES['imagem']['name'];
 //pasta para salvar arquivo;
-$_UP['pasta'] = 'fotos/';
+$_UP['pasta'] = '../fotos/';
 
 
 if ($_FILES['imagem']['error'] != 0) {
@@ -73,7 +73,7 @@ if (move_uploaded_file($_FILES['imagem']['tmp_name'], $_UP['pasta'] . $nome_fina
     echo "<script type=\"text/javascript\">;
                     alert('imagem cadastrada com sucesso');
                 </script>";
-    header('Location: index.php');
+    header('Location: ../index.php');
   } else {
     echo "<script type=\"text/javascript\">;
                     alert('Usuario Não Foi cadastrado');

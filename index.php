@@ -71,7 +71,7 @@ $erro = isset($_GET['erro']) ? $_GET['erro'] : 0;
 
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="inscrevase.php">Inscrever-se</a></li>
+					<li><a href="views/inscrevase.php">Inscrever-se</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
