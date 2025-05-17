@@ -21,9 +21,9 @@ if ($resultado_id){
     $_SESSION['email'] = $dados_usuario['email'];
 
 
-    header('Location: home.php');
+    header('Location: ../home.php');
   }else{
-    header('Location: index.php?erro=1');
+    header('Location: ../index.php?erro=1');
   }
 
 }else{

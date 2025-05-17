@@ -1,5 +1,5 @@
 <?php
-require_once('bd.class.php');
+require_once('controllers/bd.class.php');
 $sql = "SELECT * FROM usuarios ";
 
 $objDb = new bd();

@@ -22,7 +22,7 @@
       $('#btn_procurar_pessoa').click (function (){
         if ( $('#nome_pessoa').val().length > 0 ){
           $.ajax({
-            url:'get_pessoa.php',
+            url:'../controllers/get_pessoa.php',
             method: 'post',
             data: $('#form_procurar_pessoas').serialize(),
             success: function(data){
@@ -33,7 +33,7 @@
                   $('#btn_seguir_'+id_usuario).hide();
                   $('#btn_deixar_seguir_'+id_usuario).show();
                 $.ajax({
-                  url:'seguir.php',
+                  url:'../controllers/seguir.php',
                   method: 'post',
                   data: {seguir_id_usuario:id_usuario},
                   success: function(data){
@@ -47,7 +47,7 @@
                 $('#btn_seguir_'+id_usuario).show();
                 $('#btn_deixar_seguir_'+id_usuario).hide();
                 $.ajax({
-                  url:'deixar_seguir.php',
+                  url:'../controllers/deixar_seguir.php',
                   method: 'post',
                   data: {deixar_seguir_id_usuario:id_usuario},
                   success: function(data){
@@ -61,7 +61,7 @@
       });
       function atualizaNumeroSeguidores(){
         $.ajax({
-          url: 'get_numero_seguidores.php',
+          url: '../controllers/get_numero_seguidores.php',
           success: function(data){
             $('#numero_seguidores').html(data);
           }
@@ -70,7 +70,7 @@
 
       function atualizaNumeroTwitter(){
         $.ajax({
-          url: 'get_numero_tweets.php',
+          url: '../controllers/get_numero_tweets.php',
           success: function(data){
             $('#numero_tweets').html(data);
           }
@@ -98,13 +98,13 @@
 	            <span class="icon-bar"></span>
 	            <span class="icon-bar"></span>
 	          </button>
-            <a href="home.php"><img src="imagens/icone.png" /></a>
+            <a href="home.php"><img src="../imagens/icone.png" /></a>
           </div>
 
 	        <div id="navbar" class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav navbar-right">
-              <li><a href="home.php">Home</a></li>
-	            <li><a href="sair.php">Sair</a></li>
+              <li><a href="../home.php">Home</a></li>
+	            <li><a href="../sair.php">Sair</a></li>
 	          </ul>
 	        </div><!--/.nav-collapse -->
 	      </div>

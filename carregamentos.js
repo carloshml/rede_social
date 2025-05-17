@@ -4,7 +4,7 @@ $(document).ready(function(){
 
     if ( $('#texto_tweet').val().length > 0 ){
       $.ajax({
-        url:'inclui_tweet.php',
+        url:'controllers/inclui_tweet.php',
         method: 'post',
         data: $('#form_tweet').serialize(),
         success: function(data){
@@ -18,7 +18,7 @@ $(document).ready(function(){
 
   function atualizaTweet(){
     $.ajax({
-      url: 'get_twitter.php',
+      url: 'controllers/get_twitter.php',
       success: function(data){
         $('#tweets').html(data);
         $('.btn_apaga_tweet').click(function(){
@@ -38,7 +38,7 @@ $(document).ready(function(){
 
   function atualizaNumeroTwitter(){
     $.ajax({
-      url: 'get_numero_tweets.php',
+      url: 'controllers/get_numero_tweets.php',
       success: function(data){
         $('#numero_tweets').html(data);
       }
