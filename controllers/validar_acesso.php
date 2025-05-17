@@ -23,7 +23,7 @@ if ($resultado_id){
 
     header('Location: ../home.php');
   }else{
-    header('Location: ../index.php?erro=1');
+    header('Location: ../../index.php?erro=1');
   }
 
 }else{
