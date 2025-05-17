@@ -1,13 +1,12 @@
 
-$(document).ready(function(){
-  $('#btn_tweet').click (function (){
-
-    if ( $('#texto_tweet').val().length > 0 ){
+$(document).ready(function () {
+  $('#btn_tweet').click(function () {
+    if ($('#texto_tweet').val().length > 0) {
       $.ajax({
-        url:'controllers/inclui_tweet.php',
+        url: 'controllers/inclui_tweet.php',
         method: 'post',
         data: $('#form_tweet').serialize(),
-        success: function(data){
+        success: function (data) {
           $('#texto_tweet').val('');
           atualizaTweet();
           atualizaNumeroTwitter();
@@ -16,18 +15,18 @@ $(document).ready(function(){
     }
   });
 
-  function atualizaTweet(){
+  function atualizaTweet() {
     $.ajax({
       url: 'controllers/get_twitter.php',
-      success: function(data){
+      success: function (data) {
         $('#tweets').html(data);
-        $('.btn_apaga_tweet').click(function(){
+        $('.btn_apaga_tweet').click(function () {
           var id_tweet = $(this).attr('id');
           $.ajax({
             url: 'apagar_tweet.php',
             method: 'post',
-            data: {id_tweet:id_tweet},
-            success: function(data){
+            data: { id_tweet: id_tweet },
+            success: function (data) {
               atualizaTweet();
             }
           });
@@ -36,10 +35,10 @@ $(document).ready(function(){
     });
   }
 
-  function atualizaNumeroTwitter(){
+  function atualizaNumeroTwitter() {
     $.ajax({
       url: 'controllers/get_numero_tweets.php',
-      success: function(data){
+      success: function (data) {
         $('#numero_tweets').html(data);
       }
     });

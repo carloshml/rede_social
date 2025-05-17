@@ -106,7 +106,7 @@ if ($result_id) {
       <div class="panel panel-default">
         <div class="panel-body">
           <form id="form_tweet" class="input-group">
-            <input type="text" name="texto_tweet" id="texto_tweet" class="form-control"
+            <input id="texto_tweet" type="text" name="texto_tweet"  class="form-control"
               placeholder="O que está acontecendo agora?" maxlength="140">
             <span class="input-group-btn">
               <button type="button" id="btn_tweet" class="btn btn-default" name="button">Falar</button>
