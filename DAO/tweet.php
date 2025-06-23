@@ -1,5 +1,5 @@
 <?php
-require_once('bd.class.php');
+require_once(__DIR__ . '/../controllers/bd.class.php');
 
 class Tweet
 {

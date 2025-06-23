@@ -9,7 +9,7 @@ $id_usuario = $_SESSION['id_usuario'];
  
 
  
-require_once('controllers/usuario.php');
+require_once('DAO/usuario.php');
 $usuario = new UsuarioUploader();
 $registro = $usuario->fotobyUsuario($id_usuario);
 $lugar_foto = $registro['foto_usuario'];

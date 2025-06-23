@@ -5,7 +5,7 @@ if (!isset($_SESSION['usuario'])) {
   exit;
 }
 
-require_once('tweet.php');
+require_once('../DAO/tweet.php');
 
 $id_usuario_logado = $_SESSION['id_usuario'];
 $id_usuario = isset($_REQUEST['id_usuario']) ? (int) $_REQUEST['id_usuario'] : 0;

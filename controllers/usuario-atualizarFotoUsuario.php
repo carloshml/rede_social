@@ -1,6 +1,9 @@
 <?php
-require_once('bd.class.php');
-require_once('usuario.php');
+session_start();
+if (!isset($_SESSION['usuario'])) {
+  header('Location: ../index.php?erro=1');
+}
+require_once('../DAO/usuario.php');
 // Captura os dados do formulário
 $usuario_id = (int) $_POST['usuario_id'];
 $email = trim($_POST['email']);

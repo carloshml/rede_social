@@ -4,7 +4,7 @@ if (!isset($_SESSION['usuario'])) {
 	header('Location: index.php?erro=1');
 }
 
-require_once('../controllers/usuario.php');
+require_once('../DAO/usuario.php');
 $usuario = new UsuarioUploader();
 $registro = $usuario->fotoUsuario();
 $foto_usuario = $registro['foto_usuario'];
