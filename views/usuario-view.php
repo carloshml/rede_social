@@ -51,7 +51,7 @@ if ($result_id) {
             $('.btn_apaga_tweet').click(function () {
               var id_tweet = $(this).attr('id');
               $.ajax({
-                url: 'apagar_tweet.php',
+                url: 'tweet-apagar.php',
                 method: 'post',
                 data: { id_tweet: id_tweet },
                 success: function (data) {

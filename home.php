@@ -19,16 +19,6 @@ if ($resultado_id = mysqli_query($link, $sql)) {
   echo 'erro de execução no banco';
 }
 
-// quantidade de seguidores
-
-$sql = "SELECT COUNT(*) as qtde_seguidores from usuarios_seguidores WHERE id_usuario_seguidor = $id_usuario";
-$qtde_seguidores = 0;
-if ($resultado_id = mysqli_query($link, $sql)) {
-  $registro = mysqli_fetch_array($resultado_id, MYSQLI_ASSOC);
-  $qtde_seguidores = $registro['qtde_seguidores'];
-} else {
-  echo 'erro de execução no banco';
-}
 
 $sql = "SELECT * FROM usuarios where id = $id_usuario ";
 $result_id = mysqli_query($link, $sql) or die("Impossível executar a query");
@@ -72,8 +62,8 @@ if ($result_id) {
         <ul class="nav navbar-nav navbar-right">
           <li><a href="sair.php">Sair</a></li>
           <li>
-            <a id=" "  href="views/user-update.php" class="btn btn-warning list-group-item-text pull-right btn_apaga_tweet" type="button"
-              name="button">
+            <a id=" " href="views/user-update.php"
+              class="btn btn-warning list-group-item-text pull-right btn_apaga_tweet" type="button" name="button">
               <span class="glyphicon glyphicon-cog"> </span>
             </a>
 
@@ -98,12 +88,13 @@ if ($result_id) {
           <div class="row">
             <div class="col-md-6">
               <div>
-                <a href="views/usuario-view.php?id_usuario=<?=$id_usuario?>">TWEETS</a>
+                <a href="views/usuario-view.php?id_usuario=<?= $id_usuario ?>">TWEETS</a>
               </div>
               <div id="numero_tweets"> </div>
             </div>
             <div class="col-md-6">
-              SEGUIDORES <br /> <?= $qtde_seguidores ?>
+              SEGUIDORES <br />
+              <div id="numero_seguidores"> </div>
             </div>
           </div>
         </div>
