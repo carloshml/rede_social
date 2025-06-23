@@ -21,7 +21,7 @@ if ($resultado_id = mysqli_query($link, $sql)) {
 
 // quantidade de seguidores
 
-$sql = "SELECT COUNT(*) as qtde_seguidores from usuarios_seguidores WHERE seguindo_id_usuario = $id_usuario";
+$sql = "SELECT COUNT(*) as qtde_seguidores from usuarios_seguidores WHERE id_usuario_seguidor = $id_usuario";
 $qtde_seguidores = 0;
 if ($resultado_id = mysqli_query($link, $sql)) {
   $registro = mysqli_fetch_array($resultado_id, MYSQLI_ASSOC);

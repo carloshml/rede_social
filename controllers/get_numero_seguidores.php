@@ -12,7 +12,7 @@ $objDB =  new bd();
 $link = $objDB->conecta_mysql();
 
 
-  $sql = "SELECT COUNT(*) as numero_seguidores from usuarios_seguidores where seguindo_id_usuario= $id_usuario";
+  $sql = "SELECT COUNT(*) as numero_seguidores from usuarios_seguidores where id_usuario_seguidor= $id_usuario";
 
   if ($resultado_id = mysqli_query($link,$sql)){
         $registro = mysqli_fetch_array($resultado_id, MYSQLI_ASSOC);

@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once('../controllers/bd.class.php');
+
 $objBD = new bd();
 $link = $objBD->conecta_mysql();
 $id_usuario = $_SESSION['id_usuario'];
@@ -12,6 +13,9 @@ if ($result_id) {
 } else {
 	echo 'erro de execução no banco';
 }
+
+ 
+
 
 
 ?>
@@ -66,13 +70,11 @@ if ($result_id) {
 		</div>
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
-			<form method="post" action="../controllers/atualiza_usuario.php" id="formCadastrarse"
+			<form method="post" action="../controllers/usuario-atualizarFotoUsuario.php" id="formCadastrarse"
 				enctype="multipart/form-data">
-				<input type="hidden" class="form-control" id="usuario_id" name="usuario_id"  value="<?= $id_usuario ?>"
-						required="required">
-				 
-				 
-			     nova imagem:
+				<input type="hidden" class="form-control" id="usuario_id" name="usuario_id" value="<?= $id_usuario ?>"
+					required="required">
+				nova imagem:
 				<div class="form-group">
 					<input type="file" class="form-control" id="imagem" name="imagem" required="required" />
 				</div>

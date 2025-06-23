@@ -51,7 +51,7 @@ Registra o relacionamento entre usuários e seguidores.
 ```sql
 CREATE TABLE if not exists usuarios_seguidores (
     id_usuario INT,
-    seguindo_id_usuario INT
+    id_usuario_seguidor INT
 );
 ```
 
