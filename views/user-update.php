@@ -4,24 +4,10 @@ if (!isset($_SESSION['usuario'])) {
 	header('Location: index.php?erro=1');
 }
 
-require_once('../controllers/bd.class.php');
-
-$objBD = new BD();
-$link = $objBD->conecta_mysql();
-$id_usuario = $_SESSION['id_usuario'];
-$sql = "SELECT * FROM usuarios where id = $id_usuario ";
-$result_id = mysqli_query($link, $sql) or die("Impossível executar a query");
-if ($result_id) {
-	$registro = mysqli_fetch_array($result_id, MYSQLI_ASSOC);
-	$foto_usuario = $registro['foto_usuario'];
-} else {
-	echo 'erro de execução no banco';
-}
-
-
-
-
-
+require_once('../controllers/usuario.php');
+$usuario = new UsuarioUploader();
+$registro = $usuario->fotoUsuario();
+$foto_usuario = $registro['foto_usuario'];
 ?>
 <!DOCTYPE HTML>
 <html lang="pt-br">

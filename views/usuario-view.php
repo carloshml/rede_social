@@ -11,22 +11,14 @@ if ($id_usuario === 0) {
   exit;
 }
 
-// conexão com o banco
-require_once('../controllers/bd.class.php');
-$objBD = new BD();
-$link = $objBD->conecta_mysql();
 
+require_once('../controllers/usuario.php');
+$usuario = new UsuarioUploader();
+$registro = $usuario->fotobyUsuario($id_usuario);
+$lugar_foto = $registro['foto_usuario'];
 
+ 
 
-
-$sql = "SELECT * FROM usuarios where id = $id_usuario ";
-$result_id = mysqli_query($link, $sql) or die("Impossível executar a query");
-if ($result_id) {
-  $registro = mysqli_fetch_array($result_id, MYSQLI_ASSOC);
-  $lugar_foto = $registro['foto_usuario'];
-} else {
-  echo 'erro de execução no banco';
-}
 
 
 ?>

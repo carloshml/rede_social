@@ -2,19 +2,30 @@
 session_start();
 if (!isset($_SESSION['usuario'])) {
   header('Location: ../index.php?erro=1');
+  exit;
 }
+
 require_once('bd.class.php');
+
 $id_usuario = $_SESSION['id_usuario'];
-$objDB = new BD();
 
-$link = $objDB->conecta_mysql();
+try {
+  $db = new BD();
+  $pdo = $db->conecta_mysql();
 
-$sql = "SELECT * FROM usuarios where id = $id_usuario ";
-$result_id = mysqli_query($link, $sql) or die("Impossível executar a query");
+  $sql = "SELECT foto_usuario FROM usuarios WHERE id = :id_usuario";
+  $stmt = $pdo->prepare($sql);
+  $stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+  $stmt->execute();
 
-if ($result_id) {
-  while ($registro = mysqli_fetch_array($result_id, MYSQLI_ASSOC)) {
-    $lugar_foto = $registro['foto_usuario'];
+  $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+  if ($usuario) {
+    $lugar_foto = $usuario['foto_usuario'];
+  } else {
+    throw new RuntimeException('Usuário não encontrado.');
   }
+} catch (PDOException $e) {
+  echo 'Erro ao buscar foto do usuário: ' . htmlspecialchars($e->getMessage());
 }
 ?>
