@@ -98,7 +98,7 @@ if ($result_id) {
           <div class="row">
             <div class="col-md-6">
               <div>
-                <a href="views/tweet_usuario.php">TWEETS</a>
+                <a href="views/usuario-view.php?id_usuario=<?=$id_usuario?>">TWEETS</a>
               </div>
               <div id="numero_tweets"> </div>
             </div>

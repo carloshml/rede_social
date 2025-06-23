@@ -17,7 +17,7 @@ $(document).ready(function () {
 
   function atualizaTweet() {
     $.ajax({
-      url: 'controllers/get_twitter.php',
+      url: 'controllers/twitter-listar-tweets_usuarios.php',
       success: function (data) {
         $('#tweets').html(data);
         $('.btn_apaga_tweet').click(function () {

@@ -23,7 +23,7 @@ if (!isset($_SESSION['usuario'])) {
       $('#btn_procurar_pessoa').click(function () {
         if ($('#nome_pessoa').val().length > 0) {
           $.ajax({
-            url: '../controllers/usuario_get_pessoa.php',
+            url: '../controllers/usuario-listar-usuarios.php',
             method: 'post',
             data: $('#form_procurar_pessoas').serialize(),
             success: function (data) {
