@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION['usuario'])) {
+	header('Location: index.php?erro=1');
+}
+
 require_once('../controllers/bd.class.php');
 
 $objBD = new bd();
@@ -46,13 +50,19 @@ if ($result_id) {
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a href="home.php"><img src="../imagens/icone.png" /></a>
+				<a href="../home.php"><img src="../imagens/icone.png" /></a>
 			</div>
-
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="../home.php">Home</a></li>
-					<li><a href="../sair.php">Sair</a></li>
+					<li><a href="../controllers/app-sair.php">Sair</a></li>
+					<li>
+						<a id=" " href="../views/user-update.php"
+							class="btn btn-warning list-group-item-text pull-right btn_apaga_tweet" type="button"
+							name="button">
+							<span class="glyphicon glyphicon-cog"> </span>
+						</a>
+
+					</li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>

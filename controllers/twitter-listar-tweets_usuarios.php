@@ -2,43 +2,46 @@
 session_start();
 if (!isset($_SESSION['usuario'])) {
   header('Location: ../index.php?erro=1');
+  exit;
 }
 
-require_once('bd.class.php');
-$id_usuario = $_SESSION['id_usuario'];
+require_once('tweet.php');
 
-$objDB = new bd();
+$tweetService = new Tweet();
+$tweets = $tweetService->listarTweets($_SESSION['id_usuario']);
 
-$link = $objDB->conecta_mysql();
+if ($tweets) {
+  foreach ($tweets as $registro) {
+    echo '<div class="list-group-item">';
 
-$sql = "SELECT t.id_tweet,DATE_FORMAT(t.data_inclusao,' %T %d %b %Y ')as data_inclusao , t.tweet, u.usuario, u.foto_usuario, u.id 
-          FROM tweet as t  JOIN usuarios as u ON (t.id_usuario = u.id)
-          where id_usuario = $id_usuario
-          or id_usuario in (SELECT id_usuario_seguidor from usuarios_seguidores where id_usuario = $id_usuario  )
-          ORDER BY t.id_tweet DESC ";
-
-$resultado_id = mysqli_query($link, $sql);
+    echo '<div class="media">';
+    echo ' <div class="text-right">';
 
 
-if ($resultado_id) {
-  while ($registro = mysqli_fetch_array($resultado_id, MYSQLI_ASSOC)) {
-    echo '<a href="#" class="list-group-item">';
-    echo '<p class="list-group-item-text pull-right">';
-    echo '<h4 >  <img src="fotos/'.$registro['foto_usuario'] .'" height="60" width="60"></h4>  ';
-    echo '<h4 >' . $registro['usuario'] . '<small>' . $registro['data_inclusao'] . '</small></h4>';
-    echo '<span class="list-group-item-text">  ' . $registro['tweet'] . '</span>';
-    
-    echo '<a  class="btn btn-default btn_deixar_seguir"    data-id_usuario="'.$registro['id'].'" ';
-    echo ' href="views/usuario-view.php?id_usuario='.$registro['id'].'" >   tweets  </a>';
-    if ($registro['id'] == $id_usuario) {
-      echo '<button id="' . $registro['id_tweet'] . '" class="btn btn-warning list-group-item-text pull-right btn_apaga_tweet" type="button" name="button">';
-      echo '<span class="glyphicon glyphicon-trash"> </span>';
-      echo '</button>';
+    echo '    <div class="btn-group">';
+
+    if ($registro['id_usuario'] == $_SESSION['id_usuario']) {
+      echo '      <button id="' . $registro['id_tweet'] . '" class="btn btn-warning btn_apaga_tweet" type="button">';
+      echo '        <span class="glyphicon glyphicon-trash"></span>';
+      echo '      </button>';
     }
-    echo '</p>';
-    echo '</a>';
+    echo '    </div>'; // .btn-group
+    echo '    </div>'; // .btn-group
+    echo '  <div class="media-left">';
+    echo '      <a class="btn btn-default btn_deixar_seguir" data-id_usuario="' . $registro['id_usuario'] . '" href="views/usuario-view.php?id_usuario=' . $registro['id_usuario'] . '">';
+    echo '         <img class="media-object img-circle" src="fotos/' . htmlspecialchars($registro['foto_usuario']) . '" height="60" width="60">';
+    echo '      </a>';
+    echo '  </div>';
+    echo '  <div class="media-body">';
+    echo '    <h4 class="media-heading">' . htmlspecialchars($registro['usuario']) . ' <small>' . $registro['data_inclusao'] . '</small></h4>';
+    echo '    <p>' . htmlspecialchars($registro['tweet']) . '</p>';
+
+
+    echo '  </div>';   // .media-body
+    echo '</div>';     // .media
+    echo '</div>';     // .list-group-item
   }
 } else {
-  echo 'erro na consulta';
+  echo '<div class="list-group-item">Nenhum tweet encontrado.</div>';
 }
 ?>

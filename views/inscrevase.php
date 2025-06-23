@@ -48,7 +48,7 @@ $erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
 	<div class="container">
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
-			<h3>Inscreva-se já.</h3>		 
+			<h3>Inscreva-se já.</h3>
 			<form method="post" action="../controllers/registra_usuario.php" id="formCadastrarse"
 				enctype="multipart/form-data">
 				<div class="form-group">
