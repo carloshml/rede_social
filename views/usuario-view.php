@@ -98,7 +98,7 @@ if ($result_id) {
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="../home.php"><img src="../imagens/icone.png" /></a>
+        <a href="../home.php"><img width="60" src="../imagens/icone.png" /></a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">

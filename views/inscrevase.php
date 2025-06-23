@@ -33,7 +33,7 @@ $erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a href="../index.php"><img src="../imagens/icone.png" /></a>
+				<a href="../index.php"><img width="60" src="../imagens/icone.png" /></a>
 			</div>
 
 			<div id="navbar" class="navbar-collapse collapse">
