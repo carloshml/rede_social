@@ -10,7 +10,7 @@ if ($id_usuario === 0) {
   $id_usuario = $_SESSION['id_usuario'];
 }
 
-$objDB = new bd();
+$objDB = new BD();
 $link = $objDB->conecta_mysql();
 
 $sql = "SELECT COUNT(*) as numero_seguidores from usuarios_seguidores where id_usuario_seguidor= $id_usuario";

@@ -1,6 +1,6 @@
 <?php
 //Conexão via PDO para Database
-class bd
+class BD
 {
     //ALTERE DE ACORDO COM AS CONFIGURAÇÕES DE USUÁRIO E DATABASE.
     //Host

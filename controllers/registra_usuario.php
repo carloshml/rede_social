@@ -8,7 +8,7 @@ $senha = md5($_POST['senha']);
 //Insere dados de novo usuário na tabela.
 
 
-$objBD = new bd();
+$objBD = new BD();
 $link = $objBD->conecta_mysql();
 $usuario_existe = false;
 $email_existe = false;

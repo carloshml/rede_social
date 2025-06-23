@@ -6,7 +6,7 @@ if (!isset($_SESSION['usuario'])) {
 
 require_once('../controllers/bd.class.php');
 
-$objBD = new bd();
+$objBD = new BD();
 $link = $objBD->conecta_mysql();
 $id_usuario = $_SESSION['id_usuario'];
 $sql = "SELECT * FROM usuarios where id = $id_usuario ";

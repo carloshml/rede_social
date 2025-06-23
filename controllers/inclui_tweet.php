@@ -15,7 +15,7 @@
 
   }
   //estacia o objeto que faz conexão com o bd
-  $objDB = new bd();
+  $objDB = new BD();
   $link = $objDB->conecta_mysql();
 
   $sql = "INSERT INTO tweet(id_usuario,tweet) values ($id_usuario,'$texto_tweet') ";

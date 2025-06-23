@@ -13,7 +13,7 @@ if ($id_tweet == '' || $id_usuario == '') {
   die();
 }
 //estacia o objeto que faz conexão com o bd
-$objDB = new bd();
+$objDB = new BD();
 $link = $objDB->conecta_mysql();
 
 $sql = " DELETE FROM tweet WHERE tweet.id_tweet = $id_tweet ";

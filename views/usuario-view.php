@@ -13,7 +13,7 @@ if ($id_usuario === 0) {
 
 // conexão com o banco
 require_once('../controllers/bd.class.php');
-$objBD = new bd();
+$objBD = new BD();
 $link = $objBD->conecta_mysql();
 
 

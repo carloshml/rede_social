@@ -5,7 +5,7 @@ class UsuarioUploader
 
   public function __construct()
   {
-    $db = new bd();
+    $db = new BD();
     $this->link = $db->conecta_mysql();
   }
 

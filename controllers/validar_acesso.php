@@ -4,7 +4,7 @@ require_once('bd.class.php');
 $usuario = $_POST['usuario'];
 $senha = md5($_POST['senha']);
 $sql = "SELECT * FROM usuarios WHERE usuario = '$usuario' AND senha = '$senha'";
-$objDb = new bd();
+$objDb = new BD();
 $link = $objDb->conecta_mysql();
 $resultado_id = mysqli_query($link, $sql);
 

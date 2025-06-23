@@ -11,7 +11,7 @@ if ($id_usuario === 0) {
  $id_usuario = $_SESSION['id_usuario'];
 }
 
-$objDB = new bd();
+$objDB = new BD();
 $link = $objDB->conecta_mysql();
 $sql = "SELECT COUNT(*) as numero_tweets from tweet where id_usuario = $id_usuario";
 if ($resultado_id = mysqli_query($link, $sql)) {

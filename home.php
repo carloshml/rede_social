@@ -7,7 +7,7 @@ if (!isset($_SESSION['usuario'])) {
 $id_usuario = $_SESSION['id_usuario'];
 // conexão com o banco
 require_once('controllers/bd.class.php');
-$objBD = new bd();
+$objBD = new BD();
 $link = $objBD->conecta_mysql();
 // recuperar quantidade de tweets
 $sql = "SELECT COUNT(*) as qtde_tweets from tweet WHERE id_usuario = $id_usuario ";

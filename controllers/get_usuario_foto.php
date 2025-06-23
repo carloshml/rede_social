@@ -5,7 +5,7 @@ if (!isset($_SESSION['usuario'])) {
 }
 require_once('bd.class.php');
 $id_usuario = $_SESSION['id_usuario'];
-$objDB = new bd();
+$objDB = new BD();
 
 $link = $objDB->conecta_mysql();
 
