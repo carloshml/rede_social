@@ -44,28 +44,36 @@ class UsuarioUploader
     }
   }
 
-    public function seguir($usuario_id, $seguir_id_usuario)
-  { 
+  public function seguir($usuario_id, $seguir_id_usuario)
+  {
+    if (!is_numeric($usuario_id) || !is_numeric($seguir_id_usuario)) {
+      throw new InvalidArgumentException('IDs inválidos para seguir.');
+    }
 
-    if ($seguir_id_usuario == '' || $usuario_id == '') {
-      die();
-    }  
-    
+    $stmt = $this->link->prepare(
+      "INSERT IGNORE INTO usuarios_seguidores (id_usuario, id_usuario_seguidor) VALUES (?, ?)"
+    );
+    $stmt->bind_param("ii", $usuario_id, $seguir_id_usuario);
 
-    $sql = "INSERT INTO usuarios_seguidores(id_usuario,id_usuario_seguidor) values ($usuario_id,$seguir_id_usuario) ";
-    mysqli_query($this->link, $sql);
+    if (!$stmt->execute()) {
+      throw new RuntimeException('Erro ao tentar seguir o usuário: ' . $stmt->error);
+    }
   }
 
   public function deixarSeguir($usuario_id, $deixar_seguir_id_usuario)
-  { 
+  {
+    if (!is_numeric($usuario_id) || !is_numeric($deixar_seguir_id_usuario)) {
+      throw new InvalidArgumentException('IDs inválidos para deixar de seguir.');
+    }
 
-    if ($deixar_seguir_id_usuario == '' || $usuario_id == '') {
-      die();
-    }  
-    
+    $stmt = $this->link->prepare(
+      "DELETE FROM usuarios_seguidores WHERE id_usuario = ? AND id_usuario_seguidor = ?"
+    );
+    $stmt->bind_param("ii", $usuario_id, $deixar_seguir_id_usuario);
 
-    $sql = " DELETE FROM usuarios_seguidores WHERE id_usuario= $usuario_id AND id_usuario_seguidor = $deixar_seguir_id_usuario ";
-    mysqli_query($this->link, $sql);
+    if (!$stmt->execute()) {
+      throw new RuntimeException('Erro ao tentar deixar de seguir: ' . $stmt->error);
+    }
   }
 }
- ?>
+?>
