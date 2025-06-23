@@ -3,8 +3,8 @@ session_start();
 if (!isset($_SESSION['usuario'])) {
   header('Location: ../index.php?erro=1');
 }
-
 require_once('bd.class.php');
+$id_usuario_logado = $_SESSION['id_usuario'];
 $id_usuario = isset($_REQUEST['id_usuario']) ? (int) $_REQUEST['id_usuario'] : 0;
 
 if ($id_usuario === 0) {
@@ -29,7 +29,7 @@ if ($resultado_id) {
     echo '<p class="list-group-item-text pull-right">';
     echo '<h4 >' . $registro['usuario'] . '<small>' . $registro['data_inclusao'] . '</small></h4>';
     echo '<span class="list-group-item-text">' . $registro['tweet'] . '</span>';
-    if ($registro['id'] == $id_usuario) {
+    if ($registro['id'] == $id_usuario_logado) {
       echo '<button id="' . $registro['id_tweet'] . '" class="btn btn-warning list-group-item-text pull-right btn_apaga_tweet" type="button" name="button">';
       echo '<span class="glyphicon glyphicon-trash"> </span>';
       echo '</button>';
