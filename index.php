@@ -51,6 +51,7 @@ $erro = isset($_GET['erro']) ? $_GET['erro'] : 0;
 			});
 		});
 	</script>
+	<link rel="stylesheet" href="imagens/style.css">
 </head>
 
 <body>
@@ -66,7 +67,7 @@ $erro = isset($_GET['erro']) ? $_GET['erro'] : 0;
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a href="index.php"><img width="60" src="imagens/icone.png" /></a>
+				<a href="index.php"><img class="img-logo" src="imagens/icone.png" /></a>
 			</div>
 
 			<div id="navbar" class="navbar-collapse collapse">
