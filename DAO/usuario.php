@@ -101,7 +101,7 @@ class UsuarioUploader
     return $usuario;
   }
 
-  public function fotobyUsuario($id_usuario)
+  public function getFotobyUsuario($id_usuario)
   {
     $stmt = $this->link->prepare("SELECT * FROM usuarios WHERE id = :id");
     $stmt->bindParam(':id', $id_usuario, PDO::PARAM_INT);

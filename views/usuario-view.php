@@ -14,7 +14,7 @@ if ($id_usuario === 0) {
 
 require_once('../DAO/usuario.php');
 $usuario = new UsuarioUploader();
-$registro = $usuario->fotobyUsuario($id_usuario);
+$registro = $usuario->getFotobyUsuario($id_usuario);
 $lugar_foto = $registro['foto_usuario'];
 
 
