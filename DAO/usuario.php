@@ -39,8 +39,6 @@ class UsuarioUploader
     $stmt->bindParam(':foto', $nome_final, PDO::PARAM_STR);
     $stmt->bindParam(':id', $usuario_id, PDO::PARAM_INT);
     $stmt->execute();
-
-    header('Location: ../home.php');
     exit;
   }
 
