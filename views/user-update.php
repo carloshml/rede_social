@@ -7,6 +7,7 @@ if (!isset($_SESSION['usuario'])) {
 require_once('../DAO/usuario.php');
 $usuario = new UsuarioUploader();
 $registro = $usuario->fotoUsuario();
+$id_usuario = $registro['id'];
 $foto_usuario = $registro['foto_usuario'];
 ?>
 <!DOCTYPE HTML>
@@ -19,13 +20,43 @@ $foto_usuario = $registro['foto_usuario'];
 
 	<!-- jquery - link cdn -->
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('#formCadastrarse').on('submit', function (e) {
+				e.preventDefault(); // Block default form submission
+
+				var formData = new FormData(this);
+				console.log('formData:', formData);
+				$('#mensagem-upload').html('Enviando imagem...');
+
+				$.ajax({
+					url: '../controllers/usuario-atualizarFotoUsuario.php',
+					type: 'POST',
+					data: formData,
+					contentType: false,
+					processData: false,
+					success: function (response) {
+						$('#mensagem-upload').html('<span class="text-success">Foto atualizada com sucesso!</span>');
+						setTimeout(() => {
+							location.reload();
+						}, 1500);
+					},
+					error: function () {
+						$('#mensagem-upload').html('<span class="text-danger">Erro ao atualizar foto.</span>');
+					}
+				});
+			});
+		});
+	</script>
+
 
 	<!-- bootstrap - link cdn -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
+	<style src="../imagens/style.css"></style>
 </head>
 
 <body>
+	<div id="mensagem-upload" class="text-center" style="margin-top:10px;"></div>
 	<nav class="navbar navbar-default navbar-static-top">
 		<div class="container">
 			<div class="navbar-header">
@@ -66,8 +97,7 @@ $foto_usuario = $registro['foto_usuario'];
 		</div>
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
-			<form method="post" action="../controllers/usuario-atualizarFotoUsuario.php" id="formCadastrarse"
-				enctype="multipart/form-data">
+			<form id="formCadastrarse" enctype="multipart/form-data">
 				<input type="hidden" class="form-control" id="usuario_id" name="usuario_id" value="<?= $id_usuario ?>"
 					required="required">
 				nova imagem:
