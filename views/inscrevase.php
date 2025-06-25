@@ -61,13 +61,13 @@ $erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
 					?>
 				</div>
 				<div class="form-group">
+					<input type="email" class="form-control" id="email" name="email" placeholder="Email"
+						required="required">
 					<?php
 					if ($erro_email) {
 						echo '<font style="color:#FF0000"> e-mail já existe</font>';
 					}
 					?>
-					<input type="email" class="form-control" id="email" name="email" placeholder="Email"
-						required="required">
 				</div>
 				<div class="form-group">
 					<input type="password" class="form-control" id="senha" name="senha" placeholder="Senha"
