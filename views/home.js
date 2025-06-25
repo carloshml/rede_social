@@ -3,7 +3,7 @@ $(document).ready(function () {
   $('#btn_tweet').click(function () {
     if ($('#texto_tweet').val().length > 0) {
       $.ajax({
-        url: '../controllers/inclui_tweet.php',
+        url: '../controllers/tweet-post.php',
         method: 'post',
         data: $('#form_tweet').serialize(),
         success: function (data) {
@@ -44,7 +44,7 @@ $(document).ready(function () {
 
   function atualizaNumeroTwitter() {
     $.ajax({
-      url: '../controllers/get_numero_tweets.php',
+      url: '../controllers/tweet-count-by-user.php',
       success: function (data) {
         $('#numero_tweets').html(data);
       }

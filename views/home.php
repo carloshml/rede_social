@@ -42,7 +42,7 @@ $lugar_foto = $registro['foto_usuario'];
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="controllers/app-sair.php">Sair</a></li>
+          <li><a href="../controllers/app-sair.php">Sair</a></li>
           <li>
             <a id=" " href="user-update.php" class="btn btn-warning list-group-item-text pull-right btn_apaga_tweet"
               type="button" name="button">

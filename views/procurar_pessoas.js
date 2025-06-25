@@ -54,7 +54,7 @@ $(document).ready(function () {
 
   function atualizaNumeroTwitter() {
     $.ajax({
-      url: '../controllers/get_numero_tweets.php',
+      url: '../controllers/tweet-count-by-user.php',
       success: function (data) {
         $('#numero_tweets').html(data);
       }

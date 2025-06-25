@@ -65,7 +65,7 @@ $lugar_foto = $registro['foto_usuario'];
 
       function atualizaNumeroTwitter() {
         $.ajax({
-          url: '../controllers/get_numero_tweets.php?id_usuario=<?= $id_usuario ?>',
+          url: '../controllers/tweet-count-by-user.php?id_usuario=<?= $id_usuario ?>',
           success: function (data) {
             $('#numero_tweets').html(data);
           }
