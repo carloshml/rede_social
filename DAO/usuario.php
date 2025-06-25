@@ -19,6 +19,16 @@ class UsuarioUploader
     return $stmt->fetch(PDO::FETCH_ASSOC) !== false;
   }
 
+  public function existeUsuarioOuEmail($usuario, $email)
+  {
+    $stmt = $this->link->prepare("SELECT usuario, email FROM usuarios WHERE usuario = :usuario OR email = :email");
+    $stmt->execute([
+      ':usuario' => $usuario,
+      ':email' => $email
+    ]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
+
   public function atualizarFotoUsuario($usuario_id, $imagem)
   {
     $pasta = '../fotos/';
@@ -104,4 +114,16 @@ class UsuarioUploader
 
     return $usuario;
   }
+
+  public function cadastrarUsuario($usuario, $email, $senha, $foto_usuario)
+  {
+    $stmt = $this->link->prepare("INSERT INTO usuarios (usuario, email, senha, foto_usuario) VALUES (:usuario, :email, :senha, :foto)");
+    return $stmt->execute([
+      ':usuario' => $usuario,
+      ':email' => $email,
+      ':senha' => $senha,
+      ':foto' => $foto_usuario
+    ]);
+  }
+
 }
