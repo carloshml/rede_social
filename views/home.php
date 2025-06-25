@@ -75,7 +75,9 @@ $lugar_foto = $registro['foto_usuario'];
               <div id="numero_tweets"> </div>
             </div>
             <div class="col-md-6">
-              SEGUIDORES <br />
+              <div>
+                <a href="user-followers.php?id_usuario=<?= $id_usuario ?>">SEGUIDORES</a>
+              </div>
               <div id="numero_seguidores"> </div>
             </div>
           </div>

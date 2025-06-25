@@ -17,7 +17,7 @@ try {
   $sql = "
         SELECT u.id, u.usuario, u.email, us.id_usuario_seguidor
         FROM usuarios u
-        LEFT JOIN usuarios_seguidores us 
+        LEFT JOIN seguidores us 
             ON us.id_usuario = :id_usuario 
            AND u.id = us.id_usuario_seguidor
         WHERE u.usuario LIKE :nome_pessoa 

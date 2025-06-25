@@ -9,7 +9,7 @@ require_once('../DAO/seguidores.php');
 $id_usuario = $_SESSION['id_usuario'];
 $deixar_seguir_id_usuario = $_POST['deixar_seguir_id_usuario'];
 $seguidorService = new SeguidorService();
-if ($seguidorService->deixarSeguir($id_usuario, $deixar_seguir_id_usuario)) {
+if ($seguidorService->removerSeguidor($id_usuario, $deixar_seguir_id_usuario)) {
   header('Location: ../views/inscrevase.php?erro_email=1');
   exit;
 }

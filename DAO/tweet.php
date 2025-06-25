@@ -26,7 +26,7 @@ class TweetService
             WHERE t.id_usuario = :usuario_id
                OR t.id_usuario IN (
                    SELECT id_usuario_seguidor
-                   FROM usuarios_seguidores
+                   FROM seguidores
                    WHERE id_usuario = :usuario_id
                )
             ORDER BY t.id_tweet DESC

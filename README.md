@@ -45,11 +45,11 @@ CREATE TABLE tweet (
 );
 ```
 
-### Tabela `usuarios_seguidores`
+### Tabela `seguidores`
 Registra o relacionamento entre usuários e seguidores.
 
 ```sql
-CREATE TABLE if not exists usuarios_seguidores (
+CREATE TABLE if not exists seguidores (
     id_usuario INT,
     id_usuario_seguidor INT
 );
