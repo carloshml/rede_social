@@ -21,7 +21,7 @@ $lugar_foto = $registro['foto_usuario'];
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
   <!-- bootstrap - link cdn -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script language="JavaScript" src="carregamentos.js"></script>
+  <script language="JavaScript" src="home.js"></script>
   <link rel="stylesheet" href="../imagens/style.css">
 </head>
 
