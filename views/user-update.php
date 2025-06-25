@@ -52,7 +52,7 @@ $foto_usuario = $registro['foto_usuario'];
 
 	<!-- bootstrap - link cdn -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	<style src="../imagens/style.css"></style>
+	<link rel="stylesheet" href="../imagens/style.css">
 </head>
 
 <body>
@@ -67,7 +67,7 @@ $foto_usuario = $registro['foto_usuario'];
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a href="../home.php"><img width="60" src="../imagens/icone.png" /></a>
+				<a href="../home.php"><img class="img-logo" src="../imagens/icone.png" /></a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
