@@ -18,7 +18,6 @@ if (empty($texto_tweet) || empty($id_usuario)) {
 try {
   $db = new BD();
   $pdo = $db->conecta_mysql();
-
   $stmt = $pdo->prepare("INSERT INTO tweet (id_usuario, tweet) VALUES (:id_usuario, :tweet)");
   $stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
   $stmt->bindParam(':tweet', $texto_tweet, PDO::PARAM_STR);

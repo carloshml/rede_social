@@ -7,6 +7,7 @@ $(document).ready(function () {
         method: 'post',
         data: $('#form_tweet').serialize(),
         success: function (data) {
+          escreverMensagemNaTela('sucesso!');
           $('#texto_tweet').val('');
           atualizaTweet();
           atualizaNumeroTwitter();
@@ -33,6 +34,7 @@ $(document).ready(function () {
         method: 'post',
         data: { id_tweet: id_tweet },
         success: function (data) {
+          escreverMensagemNaTela('Apagado!');
           atualizaTweet();
         }
       });

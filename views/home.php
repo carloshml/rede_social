@@ -22,11 +22,12 @@ $lugar_foto = $registro['foto_usuario'];
   <!-- bootstrap - link cdn -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script language="JavaScript" src="home.js"></script>
+  <script language="JavaScript" src="funcoes-sistema.js"></script>
   <link rel="stylesheet" href="../imagens/style.css">
 </head>
 
 <body>
-  <!-- Static navbar -->
+  <div id="mensagem-upload" class="text-center"></div>
   <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
       <div class="navbar-header">
@@ -43,8 +44,8 @@ $lugar_foto = $registro['foto_usuario'];
         <ul class="nav navbar-nav navbar-right">
           <li><a href="controllers/app-sair.php">Sair</a></li>
           <li>
-            <a id=" " href="user-update.php"
-              class="btn btn-warning list-group-item-text pull-right btn_apaga_tweet" type="button" name="button">
+            <a id=" " href="user-update.php" class="btn btn-warning list-group-item-text pull-right btn_apaga_tweet"
+              type="button" name="button">
               <span class="glyphicon glyphicon-cog"> </span>
             </a>
 

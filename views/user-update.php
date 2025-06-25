@@ -36,7 +36,7 @@ $foto_usuario = $registro['foto_usuario'];
 					contentType: false,
 					processData: false,
 					success: function (response) {
-						$('#mensagem-upload').html('<span class="text-success">Foto atualizada com sucesso!</span>');
+						escreverMensagemNaTela('Foto atualizada com sucesso!');
 						setTimeout(() => {
 							location.reload();
 						}, 1500);
@@ -53,10 +53,11 @@ $foto_usuario = $registro['foto_usuario'];
 	<!-- bootstrap - link cdn -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../imagens/style.css">
+	<script language="JavaScript" src="funcoes-sistema.js"></script>
 </head>
 
 <body>
-	<div id="mensagem-upload" class="text-center" style="margin-top:10px;"></div>
+	<div id="mensagem-upload" class="text-center"></div>
 	<nav class="navbar navbar-default navbar-static-top">
 		<div class="container">
 			<div class="navbar-header">
