@@ -36,6 +36,7 @@ $(document).ready(function () {
         success: function (data) {
           escreverMensagemNaTela('Apagado!');
           atualizaTweet();
+          atualizaNumeroTwitter();
         }
       });
     });
