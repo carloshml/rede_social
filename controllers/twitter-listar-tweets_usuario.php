@@ -15,7 +15,7 @@ if ($id_usuario === 0) {
   exit;
 }
 
-$tweetService = new Tweet();
+$tweetService = new TweetService();
 $tweets = $tweetService->listarTweetsPorUsuario($id_usuario);
 
 if ($tweets) {

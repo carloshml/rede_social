@@ -7,7 +7,7 @@ if (!isset($_SESSION['usuario'])) {
 
 require_once('../DAO/tweet.php');
 
-$tweetService = new Tweet();
+$tweetService = new TweetService();
 $tweets = $tweetService->listarTweets($_SESSION['id_usuario']);
 
 if ($tweets) {
