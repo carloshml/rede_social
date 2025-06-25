@@ -63,6 +63,7 @@ $erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
 				<div class="form-group">
 					<input type="email" class="form-control" id="email" name="email" placeholder="Email"
 						required="required">
+					<div class="invalid-feedback">Por favor, insira um e-mail válido.</div>
 					<?php
 					if ($erro_email) {
 						echo '<font style="color:#FF0000"> e-mail já existe</font>';

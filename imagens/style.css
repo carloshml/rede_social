@@ -16,3 +16,18 @@
     width: 35%;
     /* Hidden by default */
 }
+
+.was-validated input:invalid {
+    border-color: #e74c3c;
+    background-color: #fceae9;
+}
+
+.invalid-feedback {
+    display: none;
+    color: #e74c3c;
+    margin-top: 5px;
+}
+
+input:invalid~.invalid-feedback {
+    display: block;
+}
