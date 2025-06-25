@@ -6,7 +6,7 @@ $email = $_POST['email'];
 $senha = md5($_POST['senha']);
 $imagem = $_FILES['imagem'];
 
-$uploader = new UsuarioUploader();
+$uploader = new UsuarioService();
 $usuarios_existentes = $uploader->existeUsuarioOuEmail($usuario, $email);
 
 $usuario_existe = false;

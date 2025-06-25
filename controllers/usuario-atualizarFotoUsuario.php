@@ -7,7 +7,7 @@ require_once('../DAO/usuario.php');
 // Captura os dados do formulário
 $usuario_id = (int) $_POST['usuario_id'];
  
-$upload = new UsuarioUploader();
+$upload = new UsuarioService();
 if (isset($_FILES['imagem'])) {
   $upload->atualizarFotoUsuario($usuario_id, $_FILES['imagem']);
   echo 'success';

@@ -6,7 +6,7 @@ if (!isset($_SESSION['usuario'])) {
 
  
 require_once('../DAO/usuario.php');
-$upload = new UsuarioUploader();
+$upload = new UsuarioService();
 
 $id_usuario = $_SESSION['id_usuario'];
 $deixar_seguir_id_usuario = $_POST['deixar_seguir_id_usuario'];

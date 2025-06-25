@@ -5,7 +5,7 @@ if (!isset($_SESSION['usuario'])) {
 }
 
 require_once('../DAO/usuario.php');
-$usuario = new UsuarioUploader();
+$usuario = new UsuarioService();
 $registro = $usuario->fotoUsuario();
 $id_usuario = $registro['id'];
 $foto_usuario = $registro['foto_usuario'];

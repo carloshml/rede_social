@@ -1,7 +1,7 @@
 <?php
 require_once(__DIR__ . '/../controllers/bd.class.php');
 
-class UsuarioUploader
+class UsuarioService
 {
   private $link;
 

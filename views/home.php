@@ -6,7 +6,7 @@ if (!isset($_SESSION['usuario'])) {
 
 $id_usuario = $_SESSION['id_usuario'];
 require_once('../DAO/usuario.php');
-$usuario = new UsuarioUploader();
+$usuario = new UsuarioService();
 $registro = $usuario->getFotobyUsuario($id_usuario);
 $lugar_foto = $registro['foto_usuario'];
 
