@@ -91,7 +91,7 @@ $lugar_foto = $registro['foto_usuario'];
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="../home.php"><img class="img-logo" src="../imagens/icone.png" /></a>
+        <a href="home.php"><img class="img-logo" src="../imagens/icone.png" /></a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">

@@ -5,7 +5,7 @@ if (!isset($_SESSION['usuario'])) {
 }
 
 $id_usuario = $_SESSION['id_usuario'];
-require_once('DAO/usuario.php');
+require_once('../DAO/usuario.php');
 $usuario = new UsuarioUploader();
 $registro = $usuario->fotobyUsuario($id_usuario);
 $lugar_foto = $registro['foto_usuario'];
@@ -22,7 +22,7 @@ $lugar_foto = $registro['foto_usuario'];
   <!-- bootstrap - link cdn -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script language="JavaScript" src="carregamentos.js"></script>
-  <link rel="stylesheet" href="imagens/style.css">
+  <link rel="stylesheet" href="../imagens/style.css">
 </head>
 
 <body>
@@ -37,13 +37,13 @@ $lugar_foto = $registro['foto_usuario'];
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="home.php"><img class="img-logo" src="imagens/icone.png" /></a>
+        <a href="home.php"><img class="img-logo" src="../imagens/icone.png" /></a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="controllers/app-sair.php">Sair</a></li>
           <li>
-            <a id=" " href="views/user-update.php"
+            <a id=" " href="user-update.php"
               class="btn btn-warning list-group-item-text pull-right btn_apaga_tweet" type="button" name="button">
               <span class="glyphicon glyphicon-cog"> </span>
             </a>
@@ -59,7 +59,7 @@ $lugar_foto = $registro['foto_usuario'];
         <div class="panel-body">
           <div class="row">
             <div class="col-md-6">
-              <img src="fotos/<?= $lugar_foto ?>" height="60" width="60">
+              <img src="../fotos/<?= $lugar_foto ?>" height="60" width="60">
             </div>
             <div class="col-md-6">
               <h4><?= $_SESSION['usuario']; ?></h4>
@@ -69,7 +69,7 @@ $lugar_foto = $registro['foto_usuario'];
           <div class="row">
             <div class="col-md-6">
               <div>
-                <a href="views/usuario-view.php?id_usuario=<?= $id_usuario ?>">TWEETS</a>
+                <a href="usuario-view.php?id_usuario=<?= $id_usuario ?>">TWEETS</a>
               </div>
               <div id="numero_tweets"> </div>
             </div>
@@ -98,7 +98,7 @@ $lugar_foto = $registro['foto_usuario'];
     <div class="col-md-3">
       <div class="panel panel-default">
         <div class="panel-body">
-          <h4><a href="views/procurar_pessoas.php">Procurar Pessoas</a></h4>
+          <h4><a href="procurar_pessoas.php">Procurar Pessoas</a></h4>
         </div>
       </div>
     </div>

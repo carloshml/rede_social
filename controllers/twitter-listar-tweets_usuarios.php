@@ -29,7 +29,7 @@ if ($tweets) {
     echo '    </div>'; // .btn-group
     echo '  <div class="media-left">';
     echo '      <a class="btn btn-default btn_deixar_seguir" data-id_usuario="' . $registro['id_usuario'] . '" href="views/usuario-view.php?id_usuario=' . $registro['id_usuario'] . '">';
-    echo '         <img class="media-object img-circle" src="fotos/' . htmlspecialchars($registro['foto_usuario']) . '" height="60" width="60">';
+    echo '         <img class="media-object img-circle" src="../fotos/' . htmlspecialchars($registro['foto_usuario']) . '" height="60" width="60">';
     echo '      </a>';
     echo '  </div>';
     echo '  <div class="media-body">';
