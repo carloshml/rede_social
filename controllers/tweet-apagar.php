@@ -17,7 +17,7 @@ if (empty($id_tweet) || empty($id_usuario)) {
 
 try {
   $db = new BD();
-  $pdo = $db->conecta_mysql();
+  $pdo = $db->conecta_database();
 
   $sql = "DELETE FROM tweet WHERE id_tweet = :id_tweet AND id_usuario = :id_usuario";
   $stmt = $pdo->prepare($sql);

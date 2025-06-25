@@ -9,7 +9,7 @@ $senha = md5($_POST['senha']);
 
 
 $objBD = new BD();
-$link = $objBD->conecta_mysql();
+$link = $objBD->conecta_database();
 $usuario_existe = false;
 $email_existe = false;
 

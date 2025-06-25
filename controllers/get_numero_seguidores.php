@@ -14,7 +14,7 @@ if ($id_usuario === 0) {
 
 try {
   $db = new BD();
-  $pdo = $db->conecta_mysql();
+  $pdo = $db->conecta_database();
 
   $stmt = $pdo->prepare("
         SELECT COUNT(*) AS numero_seguidores

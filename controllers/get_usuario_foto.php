@@ -11,7 +11,7 @@ $id_usuario = $_SESSION['id_usuario'];
 
 try {
   $db = new BD();
-  $pdo = $db->conecta_mysql();
+  $pdo = $db->conecta_database();
 
   $sql = "SELECT foto_usuario FROM usuarios WHERE id = :id_usuario";
   $stmt = $pdo->prepare($sql);

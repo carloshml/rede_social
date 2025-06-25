@@ -8,7 +8,7 @@ class UsuarioUploader
   public function __construct()
   {
     $db = new BD();
-    $this->link = $db->conecta_mysql();
+    $this->link = $db->conecta_database();
   }
 
   public function verificarEmailExiste($email)

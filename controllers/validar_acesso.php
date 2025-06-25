@@ -17,7 +17,7 @@ if (empty($usuario) || empty($senha)) {
 
 try {
   $db = new BD();
-  $pdo = $db->conecta_mysql();
+  $pdo = $db->conecta_database();
   $stmt = $pdo->prepare("SELECT id, usuario, email, senha FROM usuarios WHERE usuario = :usuario AND senha = :senha");
   $stmt->bindParam(':usuario', $usuario, PDO::PARAM_STR);
   $stmt->bindParam(':senha', $senha, PDO::PARAM_STR);

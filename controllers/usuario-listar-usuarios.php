@@ -12,7 +12,7 @@ $id_usuario = $_SESSION['id_usuario'];
 
 try {
   $db = new BD();
-  $pdo = $db->conecta_mysql();
+  $pdo = $db->conecta_database();
 
   $sql = "
         SELECT u.id, u.usuario, u.email, us.id_usuario_seguidor

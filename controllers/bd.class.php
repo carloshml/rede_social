@@ -7,7 +7,7 @@ class BD
     private $database = 'twitter_clone';
     private $charset = 'utf8mb4';
 
-    public function conecta_mysql()
+    public function conecta_database()
     {
         $dsn = "mysql:host={$this->host};dbname={$this->database};charset={$this->charset}";
 
