@@ -8,3 +8,21 @@ function escreverMensagemNaTela(msg) {
     });
   }, 1500);
 }
+
+function atualizaNumeroTwitter() {
+  $.ajax({
+    url: '../controllers/tweet-count-by-user.php',
+    success: function (data) {
+      $('#numero_tweets').html(data);
+    }
+  });
+}
+
+function atualizaNumeroSeguidores() {
+  $.ajax({
+    url: '../controllers/get_numero_seguidores.php',
+    success: function (data) {
+      $('#numero_seguidores').html(data);
+    }
+  });
+}

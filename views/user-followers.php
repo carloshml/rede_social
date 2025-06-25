@@ -20,12 +20,13 @@ if (!isset($_SESSION['usuario'])) {
 
 
 	<link rel="stylesheet" href="../imagens/style.css">
+	<script language="JavaScript" src="funcoes-sistema.js"></script>
 	<script language="JavaScript" src="user-followers.js"></script>
 
 </head>
 
 <body>
-
+	<div id="mensagem-upload" class="text-center"></div>
 	<!-- Static navbar -->
 	<nav class="navbar navbar-default navbar-static-top">
 		<div class="container">
