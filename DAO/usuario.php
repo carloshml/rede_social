@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ . '/../controllers/bd.class.php');
+require_once(__DIR__ . '/../config/bd.class.php');
 
 class UsuarioService
 {

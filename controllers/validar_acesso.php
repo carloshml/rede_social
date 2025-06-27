@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('bd.class.php');
+require_once('../config/bd.class.php');
 
 $usuario = $_POST['usuario'] ?? '';
 $senha = md5($_POST['senha']) ?? '';

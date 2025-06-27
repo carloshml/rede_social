@@ -5,7 +5,7 @@ if (!isset($_SESSION['usuario'])) {
   exit;
 }
 
-require_once('bd.class.php');
+require_once('../config/bd.class.php');
 
 $texto_tweet = trim($_POST['texto_tweet'] ?? '');
 $id_usuario = $_SESSION['id_usuario'] ?? null;

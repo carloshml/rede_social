@@ -5,7 +5,7 @@ if (!isset($_SESSION['usuario'])) {
   exit;
 }
 
-require_once('bd.class.php');
+require_once('../config/bd.class.php');
 
 $id_usuario = isset($_REQUEST['id_usuario']) ? (int) $_REQUEST['id_usuario'] : 0;
 if ($id_usuario === 0) {

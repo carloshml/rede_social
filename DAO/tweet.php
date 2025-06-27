@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ . '/../controllers/bd.class.php');
+require_once(__DIR__ . '/../config/bd.class.php');
 
 class TweetService
 {
@@ -35,7 +35,6 @@ class TweetService
         $stmt = $this->link->prepare($sql);
         $stmt->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT);
         $stmt->execute();
-
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 

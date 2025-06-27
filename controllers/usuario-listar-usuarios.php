@@ -5,7 +5,7 @@ if (!isset($_SESSION['usuario'])) {
   exit;
 }
 
-require_once('bd.class.php');
+require_once('../config/bd.class.php');
 
 $nome_pessoa = $_POST['nome_pessoa'] ?? '';
 $id_usuario = $_SESSION['id_usuario'];

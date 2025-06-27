@@ -4,7 +4,7 @@ class BD
     private $host = 'localhost';
     private $user = 'root';
     private $password = '';
-    private $database = 'twitter_clone';
+    private $database = 'wiremotion';
     private $charset = 'utf8mb4';
 
     public function conecta_database()
